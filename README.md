@@ -11,10 +11,6 @@ const int ALLOWED_ATTEMPTS = 3;
 // Function Declarations (Prototypes)
 bool authenticateUser();
 void displayMainMenu();
-void handleCheckBalance(int balance);
-void handleDeposit(int &balance, string transactionHistory[], int &transactionCount);
-void handleWithdrawal(int &balance, string transactionHistory[], int &transactionCount);
-void handleTransactionHistory(const string transactionHistory[], int transactionCount);
 
 int main() {
     // Phase 1: Authentication Guard
@@ -156,12 +152,7 @@ void handleWithdrawal(int &balance, string transactionHistory[], int &transactio
     }
 }
 
-// Trace log arrays via iterating processes
-void handleTransactionHistory(const string transactionHistory[], int transactionCount) {
-    cout << "\n\033[36m====== TRANSACTION HISTORY ======\033[0m" << endl;
-    if (transactionCount == 0) {
-        cout << "\033[31mNo Transactions Found\033[0m" << endl;
-    } else {
+        else {
         for (int i = 0; i < transactionCount; i++) {
             cout << "  [" << (i + 1) << "] " << transactionHistory[i] << endl;
         }
