@@ -3,15 +3,6 @@
 
 using namespace std;
 
-// Global Constant Configuration
-const int MAX_TRANSACTIONS = 100;
-const int DEFAULT_PIN = 12345;
-const int ALLOWED_ATTEMPTS = 3;
-
-// Function Declarations (Prototypes)
-bool authenticateUser();
-void displayMainMenu();
-
 int main() {
     // Phase 1: Authentication Guard
     if (!authenticateUser()) {
@@ -87,17 +78,6 @@ bool authenticateUser() {
     } while (remainingAttempts > 0);
 
     return false;
-}
-
-// Formatted system landing menu
-void displayMainMenu() {
-    cout << "\n\033[34m=========== MAIN MENU ===========\033[0m" << endl;
-    cout << " [1] Check Balance" << endl;
-    cout << " [2] Deposit Money" << endl;
-    cout << " [3] Withdraw Money" << endl;
-    cout << " [4] Transaction History" << endl;
-    cout << " [5] Exit" << endl;
-    cout << "\033[34m=================================\033[0m" << endl;
 }
 
 // Output active accounting balances
