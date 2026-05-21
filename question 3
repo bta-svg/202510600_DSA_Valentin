@@ -4,11 +4,6 @@
 
 using namespace std;
 
-// Function Declarations for Menu Control
-void displaySystemHeader();
-void showMainBookMenu();
-void readChapterFromFile(const string &fileName);
-
 int main() {
     int userChoice = 0;
 
@@ -44,41 +39,6 @@ int main() {
     return 0;
 }
 
-// Graphic interface application layout header
-void displaySystemHeader() {
-    cout << "\033[35m=========================================================" << endl;
-    cout << "     BOOK SYSTEM: Foundations and History of C++         " << endl;
-    cout << "=========================================================\033[0m" << endl;
 }
 
-// Functional structure providing clear textbook selections
-void showMainBookMenu() {
-    cout << "\n\033[34m--------- INTERACTIVE TEXTBOOK PORTAL ---------\033[0m" << endl;
-    cout << "  [1] View the History of C++ (Evolution Timeline)" << endl;
-    cout << "  [2] Learn C++ Core Programming Concepts" << endl;
-    cout << "  [3] Close Textbook Application" << endl;
-    cout << "\033[34m-----------------------------------------------\033[0m" << endl;
-}
 
-// Stream reader handling physical storage objects safely via ifstream
-void readChapterFromFile(const string &fileName) {
-    ifstream inputFile(fileName);
-    string contentLine;
-
-    cout << "\n\033[36m--- Accessing Database Source File: " << fileName << " ---\033[0m\n" << endl;
-
-    // Safety fallback flag if user fails to establish files in root folder path
-    if (!inputFile.is_open()) {
-        cout << "\033[31m[System Error]: Unable to locate or open '" << fileName << "'.\033[0m" << endl;
-        cout << "\033[33m[Fix Hint]: Please create a file named \"" << fileName << "\" in your project folder.\033[0m\n" << endl;
-        return;
-    }
-
-    // Line extraction loop continuing through EOF indicators
-    while (getline(inputFile, contentLine)) {
-        cout << contentLine << endl;
-    }
-    cout << "\n\033[36m----------------- End of File -----------------\033[0m\n" << endl;
-
-    inputFile.close();
-}
